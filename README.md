@@ -6,6 +6,6 @@ API specification for go-eCharger Home+ with WiFi connection
 [English Version](api_en.pdf)
 
 # go-eCharger MODBUS TCP API
-[Deutsche Version (German Version)](go-eCharger API MODBUS TCP.pdf)
+[Deutsche Version (German Version)](go-eCharger%20API%20MODBUS%20TCP.pdf)
 
 Feel free to create issues
