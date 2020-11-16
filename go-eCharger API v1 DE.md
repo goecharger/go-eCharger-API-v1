@@ -15,7 +15,7 @@
    - [Lokales WLAN / Hotspot](#lokales-wlan--hotspot)
    - [Cloud: REST Api](#cloud-rest-api)
 5. [Cloud REST Api Workflow](#5-cloud-rest-api-workflow-)
-6. [Eigener MQTT Server](6-eigener-mqtt-server-)
+6. [Eigener MQTT Server](#6-eigener-mqtt-server-)
 
 # 1. Verbindung :
 
