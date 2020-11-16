@@ -15,7 +15,7 @@
    - [Lokales WLAN / Hotspot](#lokales-wlan--hotspot)
    - [Cloud: REST Api](#cloud-rest-api)
 5. [Cloud REST Api Workflow](#5-cloud-rest-api-workflow-)
-6. [Custom MQTT Server](#7-custom-mqtt-server-)
+6. [Eigener MQTT Server](#6-custom-mqtt-server-)
 
 # 1. Verbindung :
 
@@ -39,7 +39,7 @@ Authentifizierung:
 | WLAN Hotspot          | Keine (Hotspot WPA key muss bekannt sein)                                                              |
 | WLAN lokales Netzwerk | Keine (Gerät muss im gleichen WLAN sein und die HTTP Api muss mit der go-eCharger App aktiviert werden |
 | Cloud: REST Api       | go-eCharger Cloud Token                                                                                |
-| Eigener MQTT Server   | keine                                                                                                  |
+| Eigener MQTT Server   | Keine                                                                                                  |
 
 
 ### Rate Limiting
@@ -261,7 +261,7 @@ Beispiele:
 | URL                      | https://api.go-e.co/api_status?token=___________ &wait=0                                               |
 | Response<br>(simplified) | `{"success":true,"age":1234,"data":{"version":"B", [...] ,<br>"car":"1","amp":"16","err":"0", [...] }}` |
 
-# 6. Custom MQTT Server :
+# 6. Eigener MQTT Server :
 
 Ab Firmware Version 030 ist es möglich einen eigenen MQTT Server zusätzlich zur go-e Cloudzu verwenden<br><br>
 Kommandos werden über dieses Topic entgegengenommen:<br>**go-eCharger/000000/cmd/req**<br>Wobei 000000 durch die jeweilige Seriennummer ersetzt werden muss.<br><br>
