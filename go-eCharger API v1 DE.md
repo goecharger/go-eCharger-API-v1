@@ -89,9 +89,9 @@ rna":"","rnm":"","rne":"","rn4":"","rn5":"","rn6":"","rn7":"","rn8":"","rn9":""
 
 ### Parameter
 
-Zusätzlich zu diesen Parametern können auch ohne vorherige Ankündigung und je nachVerbindungsart weitere Parameter dazu kommen.
+Zusätzlich zu diesen Parametern können auch ohne vorherige Ankündigung und je nach Verbindungsart weitere Parameter dazu kommen.
 
-**Erklärung Format​ :** alle Parameter werden im JSON Objekt als String gesendet (inAnführungszeichen). Die meisten dieser Parameter können in ein integer Format konvertiertwerden. Der bei Format angegebene Datentyp zeigt die zu erwartende Größe. Sollte der Stringnicht in den angegebenen Datentyp konvertiert werden, soll ein Kommunikationsfehlerangezeigt werden.
+**Erklärung Format​ :** alle Parameter werden im JSON Objekt als String gesendet (in Anführungszeichen). Die meisten dieser Parameter können in ein integer Format konvertiertwerden. Der bei Format angegebene Datentyp zeigt die zu erwartende Größe. Sollte der String nicht in den angegebenen Datentyp konvertiert werden, soll ein Kommunikationsfehler angezeigt werden.
 
 | Parameter                                                           | Format     | Erklärung                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------------------- | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -177,7 +177,7 @@ ecd ec4 ec5 ec6 ec7 ec8 ec9 ec1 rca rcr rcd rc4 rc5 rc6 rc7 rc8 rc9 rc1
 Folgende Parameter können gesetzt werden:
 
 ```
-amp ast alw stp dwo wss wke wen tof tds lbr aho afi ama al1 al2 al3 al4 al5
+amp amx ast alw stp dwo wss wke wen tof tds lbr aho afi ama al1 al2 al3 al4 al5
 cid cch cfi lse ust wak r1x dto nmo rna rnm rne rn4 rn5 rn6 rn7 rn8 rn9 rn1
 ```
 
