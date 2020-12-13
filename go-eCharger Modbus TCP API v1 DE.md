@@ -119,7 +119,7 @@ Register sind als Holding Register oder Input Register ausgeführt. Holding Regi
 | 208      | MOD_ELECTRICITY_PRICES_HOURS    | Holding Register  |
 | 209      | MOD_ELECTRICITY_PRICES_FINISHED | Holding Register  |
 | 210      | MOD_ELECTRICITY_PRICES_ZONE     | Holding Register  |
-| 211      | MOD_AMPERE_MAX                  | Holding Registerv |
+| 211      | MOD_AMPERE_MAX                  | Holding Register  |
 | 212      | MOD_AMPERE_L1                   | Holding Register  |
 | 213      | MOD_AMLERE_L2                   | Holding Register  |
 | 214      | MOD_AMPERE_L3                   | Holding Register  |
@@ -129,7 +129,7 @@ Register sind als Holding Register oder Input Register ausgeführt. Holding Regi
 | 218      | MOD_NORWAY_MODE                 | Holding Register  |
 | 299      | MOD_AMPERE_VOLATILE             | Holding Register  |
 | 300      | MOD_AMPERE_EEPROM               | Holding Register  |
-| 301      | MOD_MACI                        | nput Register     |
+| 301      | MOD_MACI                        | Input Register    |
 | 304      | MOD_SNR                         | Input Register    |
 | 310      | MOD_HOSTNAME                    | Input Register    |
 | 315      | MOD_IP                          | Input Register    |
