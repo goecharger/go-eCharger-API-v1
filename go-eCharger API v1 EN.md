@@ -196,7 +196,7 @@ For all parameters that can be set, the format is for the command:
 | Connection            | Path                                                                                                 |
 | --------------------- | ---------------------------------------------------------------------------------------------------- |
 | WiFi Hotspot          | http://192.168.4.1/mqtt?payload=                                                                     |
-| WiFi local<br>network | http://x.x.x.x/mqtt?payload=                                                                         |
+| WiFi local network    | http://x.x.x.x/mqtt?payload=                                                                         |
 | Cloud: REST Api       | https://api.go-e.co/api?token=TOKEN&payload=MESSAGE                                                  |
 
 # 4. Return Values:
@@ -206,7 +206,7 @@ For all parameters that can be set, the format is for the command:
 | Connection            | Response                                               |
 | --------------------- | ------------------------------------------------------ |
 | WiFi Hotspot          | Complete status JSON object with already changed value |
-| WiFi local<br>network | Complete status JSON object with already changed value |
+| WiFi local network    | Complete status JSON object with already changed value |
 
 For every status request and every command, the status JSON object is returned. An<br>unsuccessful command can be recognized by the fact that the value in the status object has not changed.
 
