@@ -117,11 +117,11 @@ data type, a communication error should be displayed.
 | eto                                                                 | uint32_t   | **energy_total:** Total charged energy in 0.1kWh<br>Example: 130 means 13kWh charged |
 | wst                                                                 | uint8_t    | **wifi_state:** Wi-Fi connection status<br>3: connected<br>default: not connected                                            |
 | nrg                                                                 | array[15]  | Array with values of the current and voltage sensor<br>nrg [0]: voltage on L1 in volts<br>nrg [1]: voltage on L2 in volts<br>nrg [2]: voltage on L3 in volts<br>nrg [3]: voltage to N in volts<br>nrg [4]: Ampere on L1 in 0.1A (123 equals 12.3A)<br>nrg [5]: Ampere on L2 in 0.1A<br>nrg [6]: Ampere on L3 in 0.1A<br>nrg [7]: power on L1 in 0.1kW (36 equals 3.6kW)<br>nrg [8]: power on L2 in 0.1kW<br>nrg [9]: power at L3 in 0.1kW<br>nrg [10]: power at N in 0.1kW<br>nrg [11]: Total power in 0.01kW (360 equals 3.6kW)<br>nrg [12]: power factor on L1 in%<br>nrg [13]: power factor on L2 in%<br>nrg [14]: power factor on L3 in%<br>nrg [15]: Power factor on N in%<br><br> App logic:<br>if(Math.floor(pha/8) ==1 &&<br>parseInt(nrg[3])>parseInt(nrg[0])){<br>nrg[0]=nrg[3]<br>nrg[7]=nrg[10]<br>nrg[12]=nrg[15]<br>} |
-| fwv                                                                 | String     | **Firmware Version**<br>Example: "020-rc1"                                                                                              |
-| sse                                                                 | String     | **Serial number** number formatted as %06d<br> Example: "000001"                                                                        |
-| wss                                                                 | String     | WiFi **SSID**<br> Example: "My home network"                                                                                            |
-| wke                                                                 | String     | WiFi **Key**<br>Example: "**\*\*\*\***" for fwv after 020<br>Example: "password" for fwv before 020                                      |
-| wen                                                                 | uint8_t    | **wifi_enabled:** Wi-Fi enabled<br>0: deactivated<br>1: activated                                                                       |
+| fwv                                                                 | String     | **Firmware Version**<br>Example: "020-rc1" |
+| sse                                                                 | String     | **Serial number** number formatted as %06d<br> Example: "000001" |
+| wss                                                                 | String     | WiFi **SSID**<br> Example: "My home network" |
+| wke                                                                 | String     | WiFi **Key**<br>Example: "**\*\*\*\***" for fwv after 020<br>Example: "password" for fwv before 020 |
+| wen                                                                 | uint8_t    | **wifi_enabled:** Wi-Fi enabled<br>0: deactivated<br>1: activated |
 | tof                                                                 | uint8_t    | **ime_offset:** Time zone in hours for internal battery-powered clock +100<br>Example: 101 is GMT +1 |
 | tds                                                                 | uint8_t    | **Daylight saving time offset** (Summer time) in hours<br>Example: 1 for Central Europe |
 | lbr                                                                 | uint8_t    | **LED brightness** from 0-255 <br>0: LED off<br>255: LED brightness maximum |
@@ -139,33 +139,33 @@ data type, a communication error should be displayed.
 | cfi                                                                 | uint24_t   | Color idle: **color value completed for charging,** as a number<br>Example: parseInt ("# 00FF00"): 65280 (green, default) |
 | lse                                                                 | uint8_t    | **led_save_energy:** Turn off the LED automatically after 10 seconds<br>0: Energy saving function deactivated<br>1: Energy saving function activated  |
 | ust                                                                 | uint8_t    | **unlock_state:** Cable lock adjustment<br>0: lock as long as the car is plugged in<br>1: Automatically unlock after charging<br>2: Always leave the cable locked |
-| wak                                                                 | String     | WiFi **Hotspot Password**<br>Example: "abdef0123456"                                                           |
+| wak                                                                 | String     | WiFi **Hotspot Password**<br>Example: "abdef0123456" |
 | r1x                                                                 | uint8_t    | **Flags** <br>0b1: HTTP Api in the WLAN network activated (0: no, 1: yes)<br>0b10: End-to-end encryption enabled (0: no, 1: yes) |
-| dto                                                                 | uint8_t    | **Remaining time** in milliseconds remaining on activation by<br>electricity prices<br>App logic:<br>if(json.car==1)message = "Zuerst Auto anstecken"<br>else message = "Restzeit: …"                                                                                                                           |
+| dto                                                                 | uint8_t    | **Remaining time** in milliseconds remaining on activation by<br>electricity prices<br>App logic:<br>if(json.car==1)message = "Zuerst Auto anstecken"<br>else message = "Restzeit: …" |
 | nmo                                                                 | uint8_t    | **Norway mode** activated<br>0: deactivated (earthing detection activated)<br>1: activated (no earthing detection, intended only for IT grids) |
-| eca <br>ecr<br>ecd<br>ec4<br>ec5<br>ec6<br>ec7<br>ec8<br>ec9<br>ec1 | uint32_t   | Charged **energy per RFID card** from 1-10<br>Example: eca == 1400: 140kWh charged on card 1<br> Example: ec7 == 1400: 140kWh charged on board 7<br>Example: ec1 == 1400: 140kWh charged on card 10                                                                                                               |
-| rca<br>rcr<br>rcd<br>rc4<br>rc5<br>rc6<br>rc7<br>rc8<br>rc9<br>rc1  | String     | **RFID Card ID** from 1-10 as a string<br>Format and length: variable, depending on the version                                          |
-| rna<br>rnm<br>rne<br>rn4<br>rn5<br>rn6<br>rn7<br>rn8<br>rn9<br>rn1  | String     | **RFID Card Name** from 1-10<br>Maximum length: 10 characters                                                                           |
-| tme                                                                 | String     | **Current time**, formatted as ddmmyyhhmm<br>0104191236 corresponds to 01.04.2019 12:36                                                 |
-| sch                                                                 | String     | **Scheduler settings** (base64 encoded)<br>Functions for encode and decode are here:<br>https://gist.github.com/peterpoetzi/6cd2fad2a915a2498776912c5aa137a8<br> The settings can be set in this way:<br>r21=Math.floor(encode(1))<br>r31=Math.floor(encode(2))<br>r41=Math.floor(encode(3))<br>Direct setting of sch = is not supported                                                                                                                                                |
-| sdp                                                                 | uint8_t    | **Scheduler double press:** Activates charge after double pressing the<br>button if the load has just been interrupted by the scheduler<br>0: Function disabled<br> 1: Allow charge immediately                                                                                                                 |
+| eca <br>ecr<br>ecd<br>ec4<br>ec5<br>ec6<br>ec7<br>ec8<br>ec9<br>ec1 | uint32_t   | Charged **energy per RFID card** from 1-10<br>Example: eca == 1400: 140kWh charged on card 1<br> Example: ec7 == 1400: 140kWh charged on board 7<br>Example: ec1 == 1400: 140kWh charged on card 10 |
+| rca<br>rcr<br>rcd<br>rc4<br>rc5<br>rc6<br>rc7<br>rc8<br>rc9<br>rc1  | String     | **RFID Card ID** from 1-10 as a string<br>Format and length: variable, depending on the version |
+| rna<br>rnm<br>rne<br>rn4<br>rn5<br>rn6<br>rn7<br>rn8<br>rn9<br>rn1  | String     | **RFID Card Name** from 1-10<br>Maximum length: 10 characters |
+| tme                                                                 | String     | **Current time**, formatted as ddmmyyhhmm<br>0104191236 corresponds to 01.04.2019 12:36 |
+| sch                                                                 | String     | **Scheduler settings** (base64 encoded)<br>Functions for encode and decode are here:<br>https://gist.github.com/peterpoetzi/6cd2fad2a915a2498776912c5aa137a8<br> The settings can be set in this way:<br>r21=Math.floor(encode(1))<br>r31=Math.floor(encode(2))<br>r41=Math.floor(encode(3))<br>Direct setting of sch = is not supported |
+| sdp                                                                 | uint8_t    | **Scheduler double press:** Activates charge after double pressing the<br>button if the load has just been interrupted by the scheduler<br>0: Function disabled<br> 1: Allow charge immediately |
 | upd                                                                 | uint8_t    | **Update available** (only available if connected via go-e server)<br>0: no update available<br>1: Update available |
-| cdi                                                                 | uint8_t    | **Cloud disabled**<br>0: cloud enabled<br>1: cloud disabled                                                                             |
-| loe                                                                 | uint8_t    | **Load balancing enabled**<br>0: load balancing disabled<br>1: Load balancing activated via cloud                                       |
-| lot                                                                 | uint8_t    | **Load balancing group total ampere**                                                                                                   |
-| lom                                                                 | uint8_t    | **Load balancing minimum amperage**                                                                                                     |
-| lop                                                                 | uint8_t    | **Lastmanagement priority**                                                                                                             |
-| log                                                                 | String     | **Lastmanagement group ID**                                                                                                             |
+| cdi                                                                 | uint8_t    | **Cloud disabled**<br>0: cloud enabled<br>1: cloud disabled |
+| loe                                                                 | uint8_t    | **Load balancing enabled**<br>0: load balancing disabled<br>1: Load balancing activated via cloud |
+| lot                                                                 | uint8_t    | **Load balancing group total ampere** |
+| lom                                                                 | uint8_t    | **Load balancing minimum amperage** |
+| lop                                                                 | uint8_t    | **Lastmanagement priority** |
+| log                                                                 | String     | **Lastmanagement group ID** |
 | lon                                                                 | uint8_t    | **Lastmanagement:expected number of charging stations<br>(currently not supported)** |
-| lof                                                                 | uint8_t    | **Load balancing fallback amperage**                                                                                                    |
+| lof                                                                 | uint8_t    | **Load balancing fallback amperage** |
 | loa                                                                 | uint8_t    | **Load balancing Ampere** (current permitted charging current)<br>is automatically controlled by the load balancing) |
 | lch                                                                 | uint32_t   | **Load balancing: seconds since the last current flow while the<br>car is still plugged in**<br>0 when charging is in progress |
 | mce                                                                 | uint8_t    | **MQTT custom enabled**<br>Connect to your own MQTT server<br>0: Function disabled<br>1: Function activated |
 | mcs                                                                 | String(63) | **MQTT custom Server**<br>Hostname without protocol specification (z.B. test.mosquitto.org) |
-| mcp                                                                 | uint16_t   | **MQTT custom Port**<br>i.e. 1883                                                                                                       |
-| mcu                                                                 | String(16) | **MQTT custom Username**                                                                                                                |
-| mck                                                                 | String(16) | **MQTT custom key**<br>For MQTT authentication                                                                                          |
-| mcc                                                                 | uint8_t    | **MQTT custom connected**<br>0: not connected<br>1: connected                                                                           |
+| mcp                                                                 | uint16_t   | **MQTT custom Port**<br>i.e. 1883 |
+| mcu                                                                 | String(16) | **MQTT custom Username** |
+| mck                                                                 | String(16) | **MQTT custom key**<br>For MQTT authentication |
+| mcc                                                                 | uint8_t    | **MQTT custom connected**<br>0: not connected<br>1: connected |
 
 # 3. Commands:
 
@@ -234,9 +234,9 @@ Return values for /api_status
 
 Response time for /api_status
 
-| Condition                      | Response time                                                                                                                                                                                                                                                                                          |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Last Status <10 seconds old    | ~300 milliseconds                                                                                                                                                                                                                                                                                    |
+| Condition                      | Response time                                                                                                                   |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| Last Status <10 seconds old    | ~300 milliseconds                                                                                                               |
 | Last Status 10 seconds old     | **If wait=1:**<br>~300 bis ~3500 milliseconds<br><br>**If wait=0:**<br>~300 milliseconds<br><br>**Explanation:** If wait=1 **(default)** API Server sends ping to load box and waits up to 3 seconds for a new status object. If no new<br>status arrives after 3 seconds, the last received status will be sent. |
 | Status nicht abrufbar          | < 1000 milliseconds                                                                                                                                                                                                                                                                                    |
 
@@ -250,15 +250,14 @@ Examples:
 |Response|`` {"success":true,"payload":"amp=16"}``|
 
 |Action |Deactivate charging|
-|--|--|
+|---|---|
 |URL| https://api.go-e.co/api?payload=alw=0&token=__________|
 |Response |  ``{"success":true,"payload":"alw=0"}``|
 
 |Action| Activate charging|
-|--|--|
+|---|---|
 |URL| https://api.go-e.co/api?payload=alw=1&token=__________|
 |Response |``{"success":true,"payload":"alw=1"}``|
-
 
 |Action |Get Status|
 |---|---|
