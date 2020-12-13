@@ -225,9 +225,9 @@ Rückgabewerte für /api_status
 | Bedingung                      | Rückgabe                                                          |
 | ------------------------------ | ----------------------------------------------------------------- |
 | Token nicht angegeben          | `{"success":false,"error":"no token"}`                            |
-| Token nicht in<br>Datenbank<br>gefunden | `{"success":false,"error":"wrong token"}`                         |
-| Rate limit<br>exception        | `{"success":false,"error":"rate limiting"}`                       |
-| Status nicht<br>abrufbar        | `{"success":false,"error":"other"}`                               |
+| Token nicht in Datenbank gefunden | `{"success":false,"error":"wrong token"}`                         |
+| Rate limit exception        | `{"success":false,"error":"rate limiting"}`                       |
+| Status nicht abrufbar        | `{"success":false,"error":"other"}`                               |
 | Success                        | ``{"success":true,"age":AGE_IN_MILLISECONDS,"data":STATUS_OBJECT} |
 
 Antwortzeit für /api_status
@@ -235,7 +235,7 @@ Antwortzeit für /api_status
 | Bedingung                      | Rückgabe                                                                                                                                                                                                                                                                                                           |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Letzter Status<br><10 Sekunden alt | ~ 300 Millisekunden                                                                                                                                                                                                                                                                                                    |
-| Letzter Status<br>10 Sekunden alt  | **Wenn wait=1:**<br>~ 300 bis ~3500 Millisekunden<br><br>**Wenn wait=0:**<br>~300 Millisekunden<br><br>**Erklärung​:** Wenn wait=1 **(default)** API Server sendet Ping an <br>Ladebox und wartet bis zu 3 Sekunden auf ein neues Status<br>Objekt. Falls nach 3 Sekunden kein neuer Status kommt, wird der<br>zuletzt empfangene Status gesendet|
+| Letzter Status<br>10 Sekunden alt  | **Wenn wait=1:**<br>~300 bis ~3500 Millisekunden<br><br>**Wenn wait=0:**<br>~300 Millisekunden<br><br>**Erklärung:** Wenn wait=1 **(default)** API Server sendet Ping an <br>Ladebox und wartet bis zu 3 Sekunden auf ein neues Status Objekt. Falls nach 3 Sekunden kein neuer Status kommt, wird der<br>zuletzt empfangene Status gesendet|
 | Status nicht<br>abrufbar       | < 1000 Millisekunden                                                                                                                                                                                                                                                                                                    |
 
 # 5. Cloud REST Api Workflow :
@@ -267,4 +267,4 @@ Beispiele:
 Ab Firmware Version 030 ist es möglich einen eigenen MQTT Server zusätzlich zur go-e Cloud zu verwenden<br><br>
 Kommandos werden über dieses Topic entgegengenommen:<br>**go-eCharger/000000/cmd/req**<br>Wobei 000000 durch die jeweilige Seriennummer ersetzt werden muss.<br><br>
 Das Status Objekt wird alle 5 Sekunden über folgendes Topic ausgegeben:<br>**go-eCharger/000000/status**<br><br>
-Es ist nicht notwendig das Senden speziell zu aktivieren, der go-eCharger sendet durchgehendDaten auf /status.Seite 19 von 19
+Es ist nicht notwendig das Senden speziell zu aktivieren, der go-eCharger sendet durchgehend Daten auf /status.
