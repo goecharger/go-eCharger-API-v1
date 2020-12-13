@@ -235,10 +235,10 @@ Antwortzeit für /api_status
 | Bedingung                      | Rückgabe                                                                                                                                                                                                                                                                                                           |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Letzter Status<br><10 Sekunden alt | ~ 300 Millisekunden                                                                                                                                                                                                                                                                                                    |
-| Letzter Status<br>10 Sekunden alt  | **Wenn wait=1:**<br>~300 bis ~3500 Millisekunden<br><br>**Wenn wait=0:**<br>~300 Millisekunden<br><br>**Erklärung:** Wenn wait=1 **(default)** API Server sendet Ping an <br>Ladebox und wartet bis zu 3 Sekunden auf ein neues Status Objekt. Falls nach 3 Sekunden kein neuer Status kommt, wird der<br>zuletzt empfangene Status gesendet|
+| Letzter Status<br>10 Sekunden alt  | **Wenn wait=1:**<br>~300 bis ~3500 Millisekunden<br><br>**Wenn wait=0:**<br>~300 Millisekunden<br><br>**Erklärung:** Wenn wait=1 **(default)** API Server sendet Ping an Ladebox und wartet bis zu 3 Sekunden auf ein neues Status Objekt. Falls nach 3 Sekunden kein neuer Status kommt, wird der zuletzt empfangene Status gesendet|
 | Status nicht<br>abrufbar       | < 1000 Millisekunden                                                                                                                                                                                                                                                                                                    |
 
-# 5. Cloud REST Api Workflow :
+# 5. Cloud REST Api Workflow:
 
 Beispiele:
 
@@ -252,19 +252,22 @@ Beispiele:
 | URL      | https://api.go-e.co/api?payload=alw=0&token=__________ |
 | Response | `{"success":true,"payload":"alw=0"}`                     |
 
-| Aktion   | Activate Ladung aktivieren                                        |
+| Aktion   | Activate Ladung aktivieren                               |
 | -------- | -------------------------------------------------------- |
 | URL      | https://api.go-e.co/api?payload=alw=1&token=_____________ |
 | Response | `{"success":true,"payload":"alw=1"}`                     |
 
-| Aktion                   |Status abfragen                                                                                              |
+| Aktion                   |Status abfragen                                                                                          |
 | ------------------------ | ------------------------------------------------------------------------------------------------------- |
 | URL                      | https://api.go-e.co/api_status?token=___________ &wait=0                                               |
 | Response<br>(simplified) | `{"success":true,"age":1234,"data":{"version":"B", [...] ,<br>"car":"1","amp":"16","err":"0", [...] }}` |
 
-# 6. Eigener MQTT Server :
+# 6. Eigener MQTT Server:
 
-Ab Firmware Version 030 ist es möglich einen eigenen MQTT Server zusätzlich zur go-e Cloud zu verwenden<br><br>
-Kommandos werden über dieses Topic entgegengenommen:<br>**go-eCharger/000000/cmd/req**<br>Wobei 000000 durch die jeweilige Seriennummer ersetzt werden muss.<br><br>
-Das Status Objekt wird alle 5 Sekunden über folgendes Topic ausgegeben:<br>**go-eCharger/000000/status**<br><br>
+Ab Firmware Version 030 ist es möglich einen eigenen MQTT Server zusätzlich zur go-e Cloud zu verwenden<br>
+<br>
+Kommandos werden über dieses Topic entgegengenommen:<br>**go-eCharger/000000/cmd/req**<br>Wobei 000000 durch die jeweilige Seriennummer ersetzt werden muss.<br>
+<br>
+Das Status Objekt wird alle 5 Sekunden über folgendes Topic ausgegeben:<br>**go-eCharger/000000/status**<br>
+<br>
 Es ist nicht notwendig das Senden speziell zu aktivieren, der go-eCharger sendet durchgehend Daten auf /status.
