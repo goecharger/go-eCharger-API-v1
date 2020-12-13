@@ -214,17 +214,17 @@ Rückgabewerte für /api
 
 | Bedingung                      | Rückgabe                                      |
 | ------------------------------ | --------------------------------------------- |
-| Token nicht<br>angegeben         | `{"success":false,"error":"no token"} `       |
+| Token nicht angegeben         | `{"success":false,"error":"no token"} `       |
 | Payload nichtangegeben       | ` {"success":false,"error":"no payload"}`     |
-| Token nicht in<br>Datenbank<br>gefunden | `{"success":false,"error":"wrong token"}`     |
-| Rate limit<br>exception        | `{"success":false,"error":"rate limiting"}`   |
+| Token nicht in Datenbank gefunden | `{"success":false,"error":"wrong token"}`     |
+| Rate limit exception        | `{"success":false,"error":"rate limiting"}`   |
 | Success                        | `{"success":true,"payload":original_payload}` |
 
 Rückgabewerte für /api_status
 
 | Bedingung                      | Rückgabe                                                          |
 | ------------------------------ | ----------------------------------------------------------------- |
-| Token nicht<br>angegeben          | `{"success":false,"error":"no token"}`                            |
+| Token nicht angegeben          | `{"success":false,"error":"no token"}`                            |
 | Token nicht in<br>Datenbank<br>gefunden | `{"success":false,"error":"wrong token"}`                         |
 | Rate limit<br>exception        | `{"success":false,"error":"rate limiting"}`                       |
 | Status nicht<br>abrufbar        | `{"success":false,"error":"other"}`                               |
@@ -264,7 +264,7 @@ Beispiele:
 
 # 6. Eigener MQTT Server :
 
-Ab Firmware Version 030 ist es möglich einen eigenen MQTT Server zusätzlich zur go-e Cloudzu verwenden<br><br>
+Ab Firmware Version 030 ist es möglich einen eigenen MQTT Server zusätzlich zur go-e Cloud zu verwenden<br><br>
 Kommandos werden über dieses Topic entgegengenommen:<br>**go-eCharger/000000/cmd/req**<br>Wobei 000000 durch die jeweilige Seriennummer ersetzt werden muss.<br><br>
 Das Status Objekt wird alle 5 Sekunden über folgendes Topic ausgegeben:<br>**go-eCharger/000000/status**<br><br>
 Es ist nicht notwendig das Senden speziell zu aktivieren, der go-eCharger sendet durchgehendDaten auf /status.Seite 19 von 19
