@@ -231,15 +231,15 @@ Return values for /api_status
 | Token not found in database    | `{"success":false,"error":"wrong token"}`                         |
 | Rate limit exception           | `{"success":false,"error":"rate limiting"}`                       |
 | Status not available           | `{"success":false,"error":"other"}`                               |
-| Success                        | ``{"success":true,"age":AGE_IN_MILLISECONDS,"data":STATUS_OBJECT} |
+| Success                        | `{"success":true,"age":AGE_IN_MILLISECONDS,"data":STATUS_OBJECT}` |
 
 Response time for /api_status
 
 | Condition                      | Response time                                                                                                                                                                                                                                                                                          |
 | ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Last Status<br><10 seconds old | ~300 milliseconds                                                                                                                                                                                                                                                                                    |
-| Last Status<br>10 seconds old  | **If wait=1:**<br>~300 bis ~3500 milliseconds<br><br>**If wait=0:**<br>~300 milliseconds<br><br>**Explanation:** If wait=1 **(default)** API Server sends ping to load box and waits up to 3 seconds for a new status object. If no new<br>status arrives after 3 seconds, the last received status will be sent. |
-| Status nicht<br>abrufbar       | < 1000 milliseconds                                                                                                                                                                                                                                                                                    |
+| Last Status <10 seconds old    | ~300 milliseconds                                                                                                                                                                                                                                                                                    |
+| Last Status 10 seconds old     | **If wait=1:**<br>~300 bis ~3500 milliseconds<br><br>**If wait=0:**<br>~300 milliseconds<br><br>**Explanation:** If wait=1 **(default)** API Server sends ping to load box and waits up to 3 seconds for a new status object. If no new<br>status arrives after 3 seconds, the last received status will be sent. |
+| Status nicht abrufbar          | < 1000 milliseconds                                                                                                                                                                                                                                                                                    |
 
 # 5. Cloud REST Api Workflow:
 
