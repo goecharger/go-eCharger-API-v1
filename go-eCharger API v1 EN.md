@@ -84,25 +84,24 @@ rna":"","rnm":"","rne":"","rn4":"","rn5":"","rn6":"","rn7":"","rn8":"","rn9":""
 | ------------------ | ----------------------------------------------------------------- |
 | WiFi Hotspot       | Plain STATUS_OBJECT                                               |
 | WiFi local network | Plain STATUS_OBJECT                                               |
-| Cloud: REST Api    | {`"success":true,"age":AGE_IN_MILLISECONDS,"data":STATUS_OBJECT}` |
+| Cloud: REST Api    | `{"success":true,"age":AGE_IN_MILLISECONDS,"data":STATUS_OBJECT}` |
 
 ### Parameter
 
-In addition to these parameters, other parameters may also be added without prior notice and
-depending on the type of connection.
+In addition to these parameters, other parameters may also be added without prior notice and depending on the type of connection.
 
 **Explanation Format:** All parameters are sent in the JSON object as a string (in quotation
 marks). Most of these parameters can be converted to an integer format. The data type
 specified in the format shows the expected size. If the string is not converted to the specified
 data type, a communication error should be displayed.
 
-| Parameter                                                           | Format     | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-| ------------------------------------------------------------------- | ---------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameter                                                           | Format     | Explanation |
+| ------------------------------------------------------------------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                                             | String (1) | **JSON Format.**<br>"B": normal case <br>"C": When end-to-end encryption is enabled |
 | rbc                                                                 | uint32_t   | **reboot_counter:** Counts the number of boot operations. Sent with end-to-end encryption as protection against replay attacks. |
 | rbt                                                                 | uint32_t   | **reboot_timer:** Counts the milliseconds since the last boot. Sent with end-to-end encryption as protection against replay attacks.<br>Expires after 49 days, increasing the reboot_counter. |
-| car                                                                 | uint8_t    | **Status PWM Signaling**<br>1: charging station ready, no vehicle<br>2: vehicle loads<br>3: Waiting for vehicle<br>4: Charge finished, vehicle still connected                                                                                                                                                   |
-| amp                                                                 | uint8_t    | Ampere value for the PWM signaling in whole ampere of **6-32A**                                                                                                                                                                                                                                               |
+| car                                                                 | uint8_t    | **Status PWM Signaling**<br>1: charging station ready, no vehicle<br>2: vehicle loads<br>3: Waiting for vehicle<br>4: Charge finished, vehicle still connected |
+| amp                                                                 | uint8_t    | Ampere value for the PWM signaling in whole ampere of **6-32A** |
 | amx                                                                 | uint8_t    | Ampere value for the PWM signaling in whole ampere of **6-32A**  Will not be written on flash but acts like you set amp instead. Only on the next reboot, the amp value will be restored to the last value set with amp. Recommended for PV charging |
 | err                                                                 | uint8_t    | **error:**<br>1: RCCB (Residual Current Device)<br>3: PHASE (phase disturbance)<br>8: NO_GROUND (earthing detection)<br>10, default: INTERNAL (other) |
 | ast                                                                 | uint8_t    | **access_state:** Access control.<br>0: open<br>1: RFID / App needed<br>2: electricity price / automatic |
@@ -123,9 +122,9 @@ data type, a communication error should be displayed.
 | wss                                                                 | String     | WiFi **SSID**<br> Example: "My home network"                                                                                            |
 | wke                                                                 | String     | WiFi **Key**<br>Example: "**\*\*\*\***" for fwv after 020<br>Example: "password" for fwv before 020                                      |
 | wen                                                                 | uint8_t    | **wifi_enabled:** Wi-Fi enabled<br>0: deactivated<br>1: activated                                                                       |
-| tof                                                                 | uint8_t    | **ime_offset:** Time zone in hours for internal battery-powered clock +100<br>Example: 101 is GMT +1                                   |
-| tds                                                                 | uint8_t    | **Daylight saving time offset** (Summer time) in hours<br>Example: 1 for Central Europe                                                  |
-| lbr                                                                 | uint8_t    | **LED brightness** from 0-255 <br>0: LED off<br>255: LED brightness maximum                                                             |
+| tof                                                                 | uint8_t    | **ime_offset:** Time zone in hours for internal battery-powered clock +100<br>Example: 101 is GMT +1 |
+| tds                                                                 | uint8_t    | **Daylight saving time offset** (Summer time) in hours<br>Example: 1 for Central Europe |
+| lbr                                                                 | uint8_t    | **LED brightness** from 0-255 <br>0: LED off<br>255: LED brightness maximum |
 | aho                                                                 | uint8_t    | Minimum number of hours in which to load with "electricity price - automatic" <br>Example: 2 ("Car is full enough after 2 hours") |
 | afi                                                                 | uint8_t    | Hour **(time)** in which with "electricity price - automatically" the charge must have lasted at least aho hours.<br>Example: 7 ("Done until 7:00, so before at least 2 hours loaded") |
 | azo                                                                 | uint8_t    | Awattar price zone<br>0: Austria<br>1: Germany |
