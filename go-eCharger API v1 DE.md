@@ -1,5 +1,7 @@
 # go-eCharger API Specification
 
+**Diese Dokumentation ist für die Adapter-Version 033 gültig.**
+
 # Index
 
 1. [Verbindung](#1-Verbindung-)
