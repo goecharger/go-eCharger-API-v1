@@ -1,5 +1,7 @@
 # go-eCharger API Specification (english version)
 
+**This documentation is valid for firmware version of the adapter 033** 
+
 # Index
 
 1. [Connection](#1-connection-)
