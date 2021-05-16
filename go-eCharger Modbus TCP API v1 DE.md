@@ -33,8 +33,7 @@ erhöht werden.
 
 Register sind als Holding Register oder Input Register ausgeführt. Holding Register erlauben ein Lesen und Schreiben, Input Register nur ein Lesen.
 
-Bei Werten die über mehrere Register verteilt sind, enthält das jeweils niedrigere Register
-den niederwertigen Teil (little endian).
+Der go-eCharger verwendet standardmäßig Big Endian (Word Swap).
 
 | Register                               | Bezeichnung                 | Register Typ      | Datentyp              | Länge | Beschreibung                                                                                                                                                                                                                                                                                                                                               |
 | -------------------------------------- | --------------------------- | ----------------- | --------------------- | ----- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
