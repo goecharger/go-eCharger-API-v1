@@ -189,7 +189,7 @@ For all parameters that can be set, the format is for the command:
 
 | Method | Payload                                                            |
 | ------ | ------------------------------------------------------------------ |
-| SET    | [param]=[value]<br>Example: amp=16<br>Example: wss=my home network |
+| GET    | [param]=[value]<br>Example: amp=16<br>Example: wss=my home network |
 
 ### Path
 
@@ -198,6 +198,10 @@ For all parameters that can be set, the format is for the command:
 | WiFi Hotspot          | http://192.168.4.1/mqtt?payload=                                                                     |
 | WiFi local network    | http://x.x.x.x/mqtt?payload=                                                                         |
 | Cloud: REST Api       | https://api.go-e.co/api?token=TOKEN&payload=MESSAGE                                                  |
+
+For example setting the Ampere value for the PWM signaling to the value of "8" would be a
+
+```GET http://192.168.4.1/mqtt?payload=amp=8```
 
 # 4. Return Values:
 
