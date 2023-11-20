@@ -1,4 +1,4 @@
-# GO-E Charger Modbus TCP/IP Dokumentation Detusch
+# GO-E Charger Modbus TCP/IP Dokumentation Deutsch
 
 | Version | Date       | Author      | Description     |
 | ------- | ---------- | ----------- | --------------- |
