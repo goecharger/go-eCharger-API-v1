@@ -154,9 +154,9 @@ data type, a communication error should be displayed.
 | loe                                                                 | uint8_t    | **Load balancing enabled**<br>0: load balancing disabled<br>1: Load balancing activated via cloud |
 | lot                                                                 | uint8_t    | **Load balancing group total ampere** |
 | lom                                                                 | uint8_t    | **Load balancing minimum amperage** |
-| lop                                                                 | uint8_t    | **Lastmanagement priority** |
-| log                                                                 | String     | **Lastmanagement group ID** |
-| lon                                                                 | uint8_t    | **Lastmanagement:expected number of charging stations<br>(currently not supported)** |
+| lop                                                                 | uint8_t    | **Load balancing priority** |
+| log                                                                 | String     | **Load balancing group ID** |
+| lon                                                                 | uint8_t    | **Load balancing:expected number of charging stations<br>(currently not supported)** |
 | lof                                                                 | uint8_t    | **Load balancing fallback amperage** |
 | loa                                                                 | uint8_t    | **Load balancing Ampere** (current permitted charging current)<br>is automatically controlled by the load balancing) |
 | lch                                                                 | uint32_t   | **Load balancing: seconds since the last current flow while the<br>car is still plugged in**<br>0 when charging is in progress |
