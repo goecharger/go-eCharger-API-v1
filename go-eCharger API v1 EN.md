@@ -1,5 +1,7 @@
 # go-eCharger API Specification (english version)
 
+**This documentation is valid for firmware version of the adapter 033** 
+
 # Index
 
 1. [Connection](#1-connection-)
@@ -111,7 +113,7 @@ data type, a communication error should be displayed.
 | pha                                                                 | uint8_t    | **Phasen** before and after the contactor<br>binary flags: 0b00ABCDEF<br>A ... phase 3, in front of the contactor<br>B ... phase 2 in front of the contactor<br>C ... phase 1 in front of the contactor<br>D ... phase 3 after the contactor<br>E ... phase 2 after the contactor<br>F ... phase 1 after the contactor<br>Example: 0b00001000: Phase 1 is available<br>Example: 0b00111000: Phase1-3 is available |
 | tmp                                                                 | uint8_t    | **Temperature** of the controller in °C |
 | dws                                                                 | uint32_t   | **Charged energy** in deca-watt seconds<br>Example: 100'000 means, 1'000'000 Ws (= 277Wh = 0.277kWh)<br>were charged during this charging process. |
-| dwo                                                                 | uint16_t   | **Abschaltwert** in 0.1kWh if stp==2, for dws parameter<br>Example: 105 for 10,5kWh<br>Charging station logic: if(dwo!=0 && dws/36000>=dwo)alw=0 |
+| dwo                                                                 | uint16_t   | **Shutdown value** in 0.1kWh if stp==2, for dws parameter<br>Example: 105 for 10,5kWh<br>Charging station logic: if(dwo!=0 && dws/36000>=dwo)alw=0 |
 | adi                                                                 | uint8_t    | **adapter_in:** Charging box is plugged in with adapter<br>0: NO_ADAPTER<br>1: 16A_ADAPTER |
 | uby                                                                 | uint8_t    | **unlocked_by:** Number of the RFID card that has activated the<br>current charging process |
 | eto                                                                 | uint32_t   | **energy_total:** Total charged energy in 0.1kWh<br>Example: 130 means 13kWh charged |
